@@ -195,6 +195,7 @@ Totals: 3 passed, 1 failed, 0 skipped
 ********* Finished testing of QtTDDTest *********
 ```
 Additional we can start the program also with parameter `-xml` for a normal qt xml result file or with `-xunitxml` to retrieve a xunit xml file. 
+
 **IMPORTANT:** When you wanna read this file with the jenkins xunit test plugin, use the normal `-xml` parameter, because when I tried it the formats wasn't compatible.
 
 ## Static Code Analyse
