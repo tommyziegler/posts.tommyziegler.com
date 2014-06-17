@@ -8,6 +8,7 @@ The most important part is Test-Driven-Development, the team should learn how to
 
 ## Test-Driven Development
 
+This useful selfwritten Qt-Cpp macro helps a lot to easy write quickly new test classes. 
 ```C++
 #ifndef TOMMYZIEGLERSTESTFRAMEWORKQT_H
 #define TOMMYZIEGLERSTESTFRAMEWORKQT_H
@@ -47,7 +48,7 @@ namespace TommyZieglersTestFrameworkQt
         return false;
     }
 
-inline void addTest(QObject* object)
+    inline void addTest(QObject* object)
     {
         TestList& list = testList();
 
@@ -120,9 +121,19 @@ public:
 
 #define DECLARE_TEST(className) static Test<className> t(#className);
 
-
 #endif // TOMMYZIEGLERSTESTFRAMEWORKQT_H
 ```
+
+The main method can look then like this: 
+```C++
+#include "TommyZieglersTestFrameworkQt.h"
+
+int main(int argc, char *argv[])
+{
+    return TommyZieglersTestFrameworkQt::run(argc, argv);
+}
+```
+
 
 ## Static Code Analyse
 
