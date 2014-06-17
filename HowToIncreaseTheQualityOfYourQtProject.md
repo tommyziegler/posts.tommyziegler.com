@@ -142,9 +142,13 @@ QtTDDTest::QtTDDTest(QObject *parent) :
 {
 }
 
-void QtTDDTest::test01()
+void QtTDDTest::testSucceed()
 {
-    ...
+    QVERIFY2(true == true, "check that true is true");
+}
+
+void QtTDDTest::testFail()
+{
     QVERIFY2(true == false, "check that true is false");
 }
 ```
@@ -164,8 +168,8 @@ public:
 signals:
     
 private Q_SLOTS:
-    void test01();
-    
+    void testSucceed();
+    void testFail();
     
 };
 
@@ -184,9 +188,10 @@ The test program can be runned while development without any parameters.
 ********* Start testing of QtTDDTest *********
 Config: Using QTest library 4.8.5, Qt 4.8.5
 PASS   : QtTDDTest::initTestCase()
-PASS   : QtTDDTest::downloadChoiceGetFileSize()
+PASS   : QtTDDTest::testSucceed()
+FAIL!  : QtTDDTest::testFail() 'true == false' returned FALSE. (check that true is false)
 PASS   : QtTDDTest::cleanupTestCase()
-Totals: 3 passed, 0 failed, 0 skipped
+Totals: 3 passed, 1 failed, 0 skipped
 ********* Finished testing of QtTDDTest *********
 ```
 
