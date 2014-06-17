@@ -176,6 +176,21 @@ DECLARE_TEST(QtTDDTest)
 ```
 The DECLARE_TEST adds the current test class into the test suite. It's needed to add this line in every new test class which should be executed.
 
+### Running tests
+
+The test program can be runned while development without any parameters.  
+
+```
+********* Start testing of QtTDDTest *********
+Config: Using QTest library 4.8.5, Qt 4.8.5
+PASS   : QtTDDTest::initTestCase()
+PASS   : QtTDDTest::downloadChoiceGetFileSize()
+PASS   : QtTDDTest::cleanupTestCase()
+Totals: 3 passed, 0 failed, 0 skipped
+********* Finished testing of QtTDDTest *********
+```
+
+
 ## Static Code Analyse
 
 - Cppchecker
