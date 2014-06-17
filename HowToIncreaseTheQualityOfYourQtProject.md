@@ -173,6 +173,7 @@ private Q_SLOTS:
     
 };
 
+// Add to automatic test suite
 DECLARE_TEST(QtTDDTest)
 
 #endif // QTTDDTEST_H
