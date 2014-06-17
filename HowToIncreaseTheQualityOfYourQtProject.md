@@ -180,3 +180,7 @@ The DECLARE_TEST adds the current test class into the test suite. It's needed to
 
 - Cppchecker
 - qtp
+
+## Additional informations
+
+This sample was generated and tested with Qt 4.8.x on Windows and Mac OS X.
