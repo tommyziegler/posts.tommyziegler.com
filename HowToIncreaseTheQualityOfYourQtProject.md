@@ -135,6 +135,50 @@ int main(int argc, char *argv[])
 ```
 
 
+Like this we can write then a test case
+```C++
+#include "QtTDDTest.h"
+
+QtTDDTest::QtTDDTest(QObject *parent) :
+    QObject(parent)
+{
+}
+
+void QtTDDTest::test01()
+{
+    ...
+
+    QVERIFY2(true == false, "check that true is false");
+}
+```
+```C++
+
+#ifndef QTTDDTEST_H
+#define QTTDDTEST_H
+
+#include "TommyZieglersTestFrameworkQt.h"
+#include <QObject>
+
+class QtTDDTest : public QObject
+{
+    Q_OBJECT
+public:
+    explicit QtTDDTest(QObject *parent = 0);
+    
+signals:
+    
+private Q_SLOTS:
+    void test01();
+    
+    
+};
+
+DECLARE_TEST(QtTDDTest)
+
+#endif // QTTDDTEST_H
+```
+
+
 ## Static Code Analyse
 
 - Cppchecker
