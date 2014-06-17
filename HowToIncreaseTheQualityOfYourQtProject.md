@@ -10,7 +10,9 @@ The most important part is Test-Driven-Development, the team should learn how to
 
 There exists a useful Tutorial on the Qt-Project site: http://qt-project.org/doc/qt-4.8/qtestlib-tutorial1.html
 
-This useful selfwritten Qt-Cpp macro helps a lot to easy write quickly new test classes. 
+
+### Writing tests
+Additional this useful selfwritten Qt-Cpp macro helps a lot to easy write quickly new test classes. 
 ```C++
 #ifndef TOMMYZIEGLERSTESTFRAMEWORKQT_H
 #define TOMMYZIEGLERSTESTFRAMEWORKQT_H
@@ -135,7 +137,6 @@ int main(int argc, char *argv[])
     return TommyZieglersTestFrameworkQt::run(argc, argv);
 }
 ```
-
 
 Like this we can write then a test case
 ```C++
