@@ -203,10 +203,9 @@ Additional we can start the program also with parameter `-xml` for a normal qt x
 
 **IMPORTANT:** When you wanna read this file with the jenkins xunit test plugin, use the normal `-xml` parameter, because when I tried it the formats wasn't compatible.
 
-## Static Code Analyse
-
-- Cppchecker
-- qtp
+## Code Quality Metrics
+### Static Code Analyse
+The easy way for the static code analyse is the [Cppchecker](http://cppcheck.sourceforge.net) in combination with the [QtProjectTool](http://sourceforge.net/projects/qtprojecttool/).
 
 ## Additional informations
 
