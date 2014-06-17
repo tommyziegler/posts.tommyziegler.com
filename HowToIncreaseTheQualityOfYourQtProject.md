@@ -8,6 +8,8 @@ In this article I wanna describe how to start a new successful Qt Project. The g
 
 The most important part is Test-Driven-Development, the team should learn how to create code and features ONLY with the needed tests. I know that's really hard at the beginning. The easiest way for me at the beginning was to write the test code after I wrote the functionality, also if the Test-first approach should be your target.
 
+There exists a useful Tutorial on the Qt-Project site: http://qt-project.org/doc/qt-4.8/qtestlib-tutorial1.html
+
 This useful selfwritten Qt-Cpp macro helps a lot to easy write quickly new test classes. 
 ```C++
 #ifndef TOMMYZIEGLERSTESTFRAMEWORKQT_H
