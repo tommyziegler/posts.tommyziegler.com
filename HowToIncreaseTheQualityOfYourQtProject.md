@@ -211,7 +211,17 @@ The easy way for the static code analyse is the [Cppchecker](http://cppcheck.sou
 > qpt --tool=cppcheck sample.pro
 ```
 
+Possible 
+```
+[qpt running]: /usr/bin/cppcheck —platform=unix32 -I . -f -q —template ‘{file}:{line}:{message}’ —inline-suppr —enable=style —enable=unusedFunction —inconclusive /path/one.cpp /path/two.cpp /path/three.cpp
 
+‘/path/one.cpp:3:Unused variable: ret’
+‘/path/one.cpp:4:Variable ‘x’ is not assigned a value.’
+‘/path/two.cpp:3:Unused variable: ret’
+‘/path/two.cpp:4:Variable ‘x’ is not assigned a value.’
+‘/path/one.cpp:1:The function ‘x’ is never used.’
+’/path/three.cpp:5:Variable ‘x’ is not assigned a value.’
+```
 
 ## Additional informations
 
