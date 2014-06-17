@@ -9,119 +9,119 @@ The most important part is Test-Driven-Development, the team should learn how to
 ## Test-Driven Development
 
 ```C++
-	#ifndef TOMMYZIEGLERSTESTFRAMEWORKQT_H
-	#define TOMMYZIEGLERSTESTFRAMEWORKQT_H
-	
-	#include <QList>
-	#include <QString>
-	#include <QSharedPointer>
-	
-	#include <QDir>
-	#include <QtTest/QtTest>
+#ifndef TOMMYZIEGLERSTESTFRAMEWORKQT_H
+#define TOMMYZIEGLERSTESTFRAMEWORKQT_H
 
-	namespace TommyZieglersTestFrameworkQt
-	{
-    	typedef QList<QObject*> TestList;
-		
-    	inline TestList& testList()
-    	{
-        	static TestList list;
-        	return list;
-    	}
+#include <QList>
+#include <QString>
+#include <QSharedPointer>
 
-	    inline bool findObject(QObject* object)
-    	{
-        	TestList& list = testList();
-        	if (list.contains(object))
-        	{
-            	return true;
-        	}
-			
-        	foreach (QObject* test, list)
-        	{
-            	if (test->objectName() == object->objectName())
-            	{
-                	return true;
-            	}
-        	}
-        	return false;
-    	}
+#include <QDir>
+#include <QtTest/QtTest>
 
-    inline void addTest(QObject* object)
+namespace TommyZieglersTestFrameworkQt
+{
+    typedef QList<QObject*> TestList;
+    
+    inline TestList& testList()
+    {
+        static TestList list;
+        return list;
+    }
+
+    inline bool findObject(QObject* object)
+    {
+        TestList& list = testList();
+        if (list.contains(object))
         {
-            TestList& list = testList();
-
-            if (!findObject(object))
+            return true;
+        }
+        
+        foreach (QObject* test, list)
+        {
+            if (test->objectName() == object->objectName())
             {
-                list.append(object);
+                return true;
             }
         }
+        return false;
+    }
 
-        inline int run(int argc, char *argv[])
+inline void addTest(QObject* object)
+    {
+        TestList& list = testList();
+
+        if (!findObject(object))
         {
-            int result(0);
-
-            if(argc > 1) {
-                if( (QString::compare(QString(argv[1]), "-xml", Qt::CaseInsensitive) == 0) ||
-                    (QString::compare(QString(argv[1]), "-xunitxml", Qt::CaseInsensitive) == 0) ){
-
-                    foreach (QObject* test, testList())
-                    {
-                        QString testClassName = test->metaObject()->className();
-
-                        QString nameFile(testClassName);
-                        nameFile += ".xml";
-
-                        QString filePath("AsusClientTestsLogs");
-                        if(!QDir(filePath).exists())
-                            QDir().mkdir(filePath);
-
-                        QString outFilePath;
-                        outFilePath += filePath;
-                        outFilePath += "/";
-                        outFilePath += nameFile;
-
-                        QStringList arguments;
-                        arguments << " "
-                                  << QString(argv[1])
-                                  << "-o"
-                                  << outFilePath;
-
-
-                        result |= QTest::qExec(test, arguments);
-                    }
-
-                    return result;
-                }
-            }
-
-            foreach (QObject* test, testList())
-            {
-                QStringList arguments;
-                arguments << " ";
-                result |= QTest::qExec(test, arguments);
-            }
-            return result;
+            list.append(object);
         }
     }
 
-    template <class T>
-    class Test
+    inline int run(int argc, char *argv[])
     {
-    public:
-        QSharedPointer<T> child;
+        int result(0);
 
-        Test(const QString& name) : child(new T)
-        {
-            child->setObjectName(name);
-            TommyZieglersTestFrameworkQt::addTest(child.data());
+        if(argc > 1) {
+            if( (QString::compare(QString(argv[1]), "-xml", Qt::CaseInsensitive) == 0) ||
+                (QString::compare(QString(argv[1]), "-xunitxml", Qt::CaseInsensitive) == 0) ){
+
+                foreach (QObject* test, testList())
+                {
+                    QString testClassName = test->metaObject()->className();
+
+                    QString nameFile(testClassName);
+                    nameFile += ".xml";
+
+                    QString filePath("AsusClientTestsLogs");
+                    if(!QDir(filePath).exists())
+                        QDir().mkdir(filePath);
+
+                    QString outFilePath;
+                    outFilePath += filePath;
+                    outFilePath += "/";
+                    outFilePath += nameFile;
+
+                    QStringList arguments;
+                    arguments << " "
+                              << QString(argv[1])
+                              << "-o"
+                              << outFilePath;
+
+
+                    result |= QTest::qExec(test, arguments);
+                }
+
+                return result;
+            }
         }
-    };
 
-    #define DECLARE_TEST(className) static Test<className> t(#className);
+        foreach (QObject* test, testList())
+        {
+            QStringList arguments;
+            arguments << " ";
+            result |= QTest::qExec(test, arguments);
+        }
+        return result;
+    }
+}
+
+template <class T>
+class Test
+{
+public:
+    QSharedPointer<T> child;
+
+    Test(const QString& name) : child(new T)
+    {
+        child->setObjectName(name);
+        TommyZieglersTestFrameworkQt::addTest(child.data());
+    }
+};
+
+#define DECLARE_TEST(className) static Test<className> t(#className);
 
 
-    #endif // TOMMYZIEGLERSTESTFRAMEWORKQT_H
+#endif // TOMMYZIEGLERSTESTFRAMEWORKQT_H
 ```
 
 ## Static Code Analyse
