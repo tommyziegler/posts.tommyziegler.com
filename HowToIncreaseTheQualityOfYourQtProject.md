@@ -211,7 +211,7 @@ The easy way for the static code analyse is the [Cppchecker](http://cppcheck.sou
 > qpt --tool=cppcheck sample.pro
 ```
 
-The code metric tool will f.e. output following on the console where we can find the ... in the source code.
+The code metric tool will f.e. output following on the console where we can find the not optimum parts in the source code.
 ```
 [qpt running]: /usr/bin/cppcheck —platform=unix32 -I . -f -q —template ‘{file}:{line}:{message}’ —inline-suppr 
                                  —enable=style —enable=unusedFunction —inconclusive /path/one.cpp 
