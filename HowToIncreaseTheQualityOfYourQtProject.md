@@ -71,7 +71,7 @@ namespace TommyZieglersTestFrameworkQt
                     QString nameFile(testClassName);
                     nameFile += ".xml";
 
-                    QString filePath("AsusClientTestsLogs");
+                    QString filePath("TommyZieglersTestFrameworkQt");
                     if(!QDir(filePath).exists())
                         QDir().mkdir(filePath);
 
@@ -194,7 +194,7 @@ PASS   : QtTDDTest::cleanupTestCase()
 Totals: 3 passed, 1 failed, 0 skipped
 ********* Finished testing of QtTDDTest *********
 ```
-
+Additional we can start the program also with parameter `-xml` for a normal xml result file or with `-xunitxml` to retrieve a xunit result file.
 
 ## Static Code Analyse
 
