@@ -225,6 +225,9 @@ The code metric tool will f.e. output following on the console where we can find
 ’/path/three.cpp:5:Variable ‘x’ is not assigned a value.’
 ```
 
+To integrate this check in the toolchain we need to have a look on plugins like [Cppchecker Plugin for Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Cppcheck+Plugin)
+
+
 ## Additional informations
 
 This sample was generated and tested with Qt 4.8.x on Windows and Mac OS X.
