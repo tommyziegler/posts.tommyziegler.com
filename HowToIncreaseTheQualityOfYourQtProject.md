@@ -187,7 +187,7 @@ The DECLARE_TEST adds the current test class into the test suite. It's needed to
 
 ### Running tests
 
-The test program can be runned while development without any parameters. Our output on the Console will look like this:
+The test program can be runned while development without any parameters. Our output on the console will look like this:
 
 ```
 ********* Start testing of QtTDDTest *********
@@ -211,7 +211,7 @@ The easy way for the static code analyse is the [Cppchecker](http://cppcheck.sou
 > qpt --tool=cppcheck sample.pro
 ```
 
-Possible 
+The code metric tool will f.e. output following on the console where we can find the mistakes in the source code.
 ```
 [qpt running]: /usr/bin/cppcheck —platform=unix32 -I . -f -q —template ‘{file}:{line}:{message}’ —inline-suppr 
                                  —enable=style —enable=unusedFunction —inconclusive /path/one.cpp 
