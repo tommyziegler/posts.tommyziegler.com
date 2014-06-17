@@ -207,6 +207,12 @@ Additional we can start the program also with parameter `-xml` for a normal qt x
 ### Static Code Analyse
 The easy way for the static code analyse is the [Cppchecker](http://cppcheck.sourceforge.net) in combination with the [QtProjectTool](http://sourceforge.net/projects/qtprojecttool/).
 
+```
+> qpt --tool=cppcheck sample.pro
+```
+
+
+
 ## Additional informations
 
 This sample was generated and tested with Qt 4.8.x on Windows and Mac OS X.
