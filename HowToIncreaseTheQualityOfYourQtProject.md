@@ -225,6 +225,10 @@ The code metric tool will f.e. output following on the console where we can find
 ’/path/three.cpp:5:Variable ‘x’ is not assigned a value.’
 ```
 
+Via the QtCreator Tools menu-item the analysis is also triggerable. We need only to configure following tool in 'Preferences' -> 'Environment' -> 'External Tools'.
+
+TODO Add configuration here.
+
 To integrate this check in the toolchain we need to have a look on plugins like [Cppcheck Plugin - Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Cppcheck+Plugin)
 
 
